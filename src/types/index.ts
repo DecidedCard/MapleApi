@@ -5,8 +5,8 @@ import { UnionraiderType } from "./unionRaiderType";
 import { SkillType } from "./skillType";
 
 export interface UserNameStoreType {
-  userName: string;
-  setName: (arg: string) => void;
+  userName: string | null;
+  setName: (arg: string | null) => void;
 }
 export interface AxiosResponse<T = any, D = any> {
   status: number;
