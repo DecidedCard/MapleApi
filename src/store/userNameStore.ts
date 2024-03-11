@@ -1,7 +1,7 @@
-import { UserNameType } from "@/types";
+import { UserNameStoreType } from "@/types";
 import { create } from "zustand";
 
-const useUserNameStore = create<UserNameType>()((set) => ({
+const useUserNameStore = create<UserNameStoreType>()((set) => ({
   userName: "",
   setName: (arg) => set({ userName: arg }),
 }));
