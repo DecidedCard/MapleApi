@@ -1,14 +1,5 @@
-import {
-  CharacterInfoCheckType,
-  CheckBasicType,
-  CheckOcidType,
-  CheckStatType,
-  CheckUnionType,
-} from "@/types";
+import { CharacterInfoCheckType } from "@/types";
 import * as API from "@/api/mapleApi";
-import { CheckItemType } from "@/types/itemType";
-import { UnionraiderType } from "@/types/unionRaiderType";
-import { SkillType } from "@/types/skillType";
 
 const userInfo = async (
   characterInput: string | null

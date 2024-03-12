@@ -6,25 +6,11 @@ import UserItemInfo from "@/components/DetailComponents/UserItemInfo";
 import UserSkillInfo from "@/components/DetailComponents/UserSkillInfo";
 import UserStatInfo from "@/components/DetailComponents/UserStatInfo";
 import UserUnionInfo from "@/components/DetailComponents/UserUnionInfo";
-import useUserNameStore from "@/store/userNameStore";
-import { CharacterInfoCheckType } from "@/types";
-import userInfo from "@/util/userInfo";
-import React, { useEffect, useState } from "react";
+import useUserInfoQuery from "@/hook/useUserInfoQuery";
 
 const Detail = ({ params }: { params: string }) => {
-  const { userName } = useUserNameStore();
-  const [result, setResult] = useState<CharacterInfoCheckType>();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await userInfo(userName);
-      setResult(response);
-    };
-    fetchData();
-  }, [userName]);
-
-  console.log(result);
-  if (!result) {
+  const { userInformation, isLoading } = useUserInfoQuery();
+  if (isLoading) {
     return <>로딩중입니다.</>;
   }
 
@@ -36,10 +22,10 @@ const Detail = ({ params }: { params: string }) => {
     characterUnionRaiderInfo,
     characterSkillInfo5,
     characterSkillInfo6,
-  } = result as CharacterInfoCheckType;
+  } = userInformation;
+
   return (
     <div>
-      {" "}
       <UserBasicInfo characterBasicInfo={characterBasicInfo} />
       <div>
         <StatNavigation />
