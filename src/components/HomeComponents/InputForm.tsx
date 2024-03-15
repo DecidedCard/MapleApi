@@ -1,6 +1,7 @@
 "use client";
 
 import useHomeInputForm from "@/hook/useHomeInputForm";
+import { Input } from "@nextui-org/react";
 import React from "react";
 
 const InputForm = () => {
@@ -9,10 +10,11 @@ const InputForm = () => {
 
   return (
     <form onSubmit={onSubmitHandler}>
-      <input
-        placeholder="캐릭터 이름을 입력해주세요"
+      <Input
+        label="NickName"
         value={userName}
         onChange={onChangeUserNameHandler}
+        className="w-96"
       />
       <button>검색하기</button>
     </form>
