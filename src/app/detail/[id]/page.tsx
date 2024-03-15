@@ -10,6 +10,7 @@ import useUserInfoQuery from "@/hook/useUserInfoQuery";
 
 const Detail = ({ params }: { params: string }) => {
   const { userInformation, isLoading } = useUserInfoQuery();
+
   if (isLoading) {
     return <>로딩중입니다.</>;
   }
