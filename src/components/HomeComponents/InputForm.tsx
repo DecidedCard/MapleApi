@@ -11,13 +11,13 @@ const InputForm = () => {
   return (
     <form
       onSubmit={onSubmitHandler}
-      className="flex justify-center items-center"
+      className="flex justify-center gap-4 items-center h-48"
     >
       <Input
         label="NickName"
         value={userName}
         onChange={onChangeUserNameHandler}
-        className="w-96"
+        className="w-96 h-10"
       />
       <Button color="primary">검색하기</Button>
     </form>
