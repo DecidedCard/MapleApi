@@ -1,4 +1,4 @@
-export interface SkillType {
+export interface Skill {
   date: string;
   character_class: string;
   character_skill_grade: string;

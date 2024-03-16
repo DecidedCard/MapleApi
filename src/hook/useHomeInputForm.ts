@@ -14,7 +14,7 @@ const useHomeInputForm = () => {
     setName(userName);
     setUserName("");
     sessionStorage.setItem(sessionStorageKey, userName);
-    router.push("/detail/stat");
+    router.push("/detail");
   };
 
   return [userName, onChangeUserNameHandler, onSubmitHandler] as const;

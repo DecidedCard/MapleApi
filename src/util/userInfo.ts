@@ -1,28 +1,38 @@
-import { CharacterInfoCheckType } from "@/types";
-import * as API from "@/api/mapleApi";
+import * as API from "../api/mapleApi";
 
-const userInfo = async (
+import type { CheckItem } from "@/types/itemType";
+import type { Unionraider } from "@/types/unionRaiderType";
+import type { Skill } from "@/types/skillType";
+import type {
+  CharacterInfoCheck,
+  CheckBasic,
+  CheckOcid,
+  CheckStat,
+  CheckUnion,
+} from "@/types";
+
+const characterInfo = async (
   characterInput: string | null
-): Promise<CharacterInfoCheckType> => {
+): Promise<CharacterInfoCheck> => {
   try {
-    const { ocid } = await API.checkOcid(characterInput);
+    const { data } = await API.checkOcid<CheckOcid>(characterInput);
+    const { ocid } = data;
     const response = await Promise.all([
-      API.checkbasic(ocid),
-      API.checkStat(ocid),
-      API.checkItem(ocid),
-      API.checkUnion(ocid),
-      API.checkUnionRaider(ocid),
-      API.checkSkill5(ocid),
-      API.checkSkill6(ocid),
+      API.checkbasic<CheckBasic>(ocid),
+      API.checkStat<CheckStat>(ocid),
+      API.checkItem<CheckItem>(ocid),
+      API.checkUnion<CheckUnion>(ocid),
+      API.checkUnionRaider<Unionraider>(ocid),
+      API.checkSkill5<Skill>(ocid),
+      API.checkSkill6<Skill>(ocid),
     ]);
-
-    const characterBasicInfo = response[0];
-    const characterStatInfo = response[1];
-    const characterItemInfo = response[2];
-    const characterUnionInfo = response[3];
-    const characterUnionRaiderInfo = response[4];
-    const characterSkillInfo5 = response[5];
-    const characterSkillInfo6 = response[6];
+    const { data: characterBasicInfo } = response[0];
+    const { data: characterStatInfo } = response[1];
+    const { data: characterItemInfo } = response[2];
+    const { data: characterUnionInfo } = response[3];
+    const { data: characterUnionRaiderInfo } = response[4];
+    const { data: characterSkillInfo5 } = response[5];
+    const { data: characterSkillInfo6 } = response[6];
 
     return {
       characterBasicInfo,
@@ -39,4 +49,4 @@ const userInfo = async (
   }
 };
 
-export default userInfo;
+export default characterInfo;

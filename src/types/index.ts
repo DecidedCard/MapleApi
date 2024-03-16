@@ -1,8 +1,8 @@
 import { AxiosRequestConfig, AxiosResponseHeaders } from "axios";
-import { FinalStatType } from "./finalStatType";
-import { CheckItemType } from "./itemType";
-import { UnionraiderType } from "./unionRaiderType";
-import { SkillType } from "./skillType";
+import { FinalStat } from "./finalStatType";
+import { CheckItem } from "./itemType";
+import { Unionraider } from "./unionRaiderType";
+import { Skill } from "./skillType";
 
 export interface UserNameStoreType {
   userName: string | null;
@@ -16,11 +16,11 @@ export interface AxiosResponse<T = any, D = any> {
   config: AxiosRequestConfig<D>;
 }
 
-export interface CheckOcidType {
+export interface CheckOcid {
   ocid: string;
 }
 
-export interface CheckBasicType {
+export interface CheckBasic {
   character_class: string;
   character_class_level: string;
   character_exp: number;
@@ -34,11 +34,11 @@ export interface CheckBasicType {
   world_name: string;
 }
 
-export interface CheckStatType {
-  final_stat: FinalStatType;
+export interface CheckStat {
+  final_stat: FinalStat;
 }
 
-export interface CheckUnionType {
+export interface CheckUnion {
   date: string;
   union_artifact_exp: number;
   union_artifact_level: number;
@@ -47,12 +47,12 @@ export interface CheckUnionType {
   union_level: number;
 }
 
-export interface CharacterInfoCheckType {
-  characterBasicInfo: CheckBasicType;
-  characterStatInfo: CheckStatType;
-  characterItemInfo: CheckItemType;
-  characterUnionInfo: CheckUnionType;
-  characterUnionRaiderInfo: UnionraiderType;
-  characterSkillInfo5: SkillType;
-  characterSkillInfo6: SkillType;
+export interface CharacterInfoCheck {
+  characterBasicInfo: CheckBasic;
+  characterStatInfo: CheckStat;
+  characterItemInfo: CheckItem;
+  characterUnionInfo: CheckUnion;
+  characterUnionRaiderInfo: Unionraider;
+  characterSkillInfo5: Skill;
+  characterSkillInfo6: Skill;
 }

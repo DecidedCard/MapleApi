@@ -1,4 +1,4 @@
-export interface UnionraiderType {
+export interface Unionraider {
   date: string;
   union_raider_stat: [string];
   union_occupied_stat: [string];

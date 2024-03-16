@@ -17,7 +17,7 @@ const InputForm = () => {
         label="NickName"
         value={userName}
         onChange={onChangeUserNameHandler}
-        className="w-96 h-10"
+        className="w-96 h-12"
       />
       <Button color="primary">검색하기</Button>
     </form>

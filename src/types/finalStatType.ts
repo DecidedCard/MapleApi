@@ -1,4 +1,4 @@
-export type FinalStatType = [
+export type FinalStat = [
   {
     stat_name: string;
     stat_value: string;

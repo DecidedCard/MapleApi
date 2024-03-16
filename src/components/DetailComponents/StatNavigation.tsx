@@ -1,31 +1,65 @@
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-} from "@nextui-org/react";
-import Link from "next/link";
+import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 import React from "react";
+import UserStatInfo from "./UserStatInfo";
+import UserUnionInfo from "./UserUnionInfo";
+import UserItemInfo from "./UserItemInfo";
+import UserSkillInfo from "./UserSkillInfo";
 
-const StatNavigation = () => {
+import type { CharacterInfoCheck } from "@/types";
+
+const StatNavigation = ({
+  userInformation,
+}: {
+  userInformation: CharacterInfoCheck;
+}) => {
+  const {
+    characterStatInfo,
+    characterItemInfo,
+    characterUnionInfo,
+    characterUnionRaiderInfo,
+    characterSkillInfo5,
+    characterSkillInfo6,
+  } = userInformation;
+
   return (
-    <Navbar position="static">
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link href={"/detail/stat"}>상세 스탯</Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href={"/detail/union"}>유니온</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href={"/detail/item"}>장착 장비</Link>
-        </NavbarItem>
-        <NavbarItem className="hidden lg:flex">
-          <Link href={"/detail/skill"}>스킬</Link>
-        </NavbarItem>
-      </NavbarContent>
-    </Navbar>
+    <div className="flex w-full flex-col">
+      <Tabs aria-label="Options">
+        <Tab key="stat" title="상세 스탯">
+          <Card>
+            <CardBody>
+              <UserStatInfo characterStatInfo={characterStatInfo} />
+            </CardBody>
+          </Card>
+        </Tab>
+        <Tab key="union" title="유니온">
+          <Card>
+            <CardBody>
+              <UserUnionInfo
+                characterUnionInfo={characterUnionInfo}
+                characterUnionRaiderInfo={characterUnionRaiderInfo}
+              />
+            </CardBody>
+          </Card>
+        </Tab>
+        <Tab key="item" title="장착 장비">
+          <Card>
+            <CardBody>
+              <UserItemInfo characterItemInfo={characterItemInfo} />
+            </CardBody>
+          </Card>
+        </Tab>
+        <Tab key="skill" title="스킬">
+          <Card>
+            <CardBody>
+              <UserSkillInfo
+                characterSkillInfo5={characterSkillInfo5}
+                characterSkillInfo6={characterSkillInfo6}
+              />
+            </CardBody>
+          </Card>
+        </Tab>
+      </Tabs>
+    </div>
   );
 };
 

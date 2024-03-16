@@ -1,14 +1,14 @@
-import { ItemEquipmentType } from "./itemEquipmentType";
+import { ItemEquipment } from "./itemEquipmentType";
 
-export interface CheckItemType {
+export interface CheckItem {
   date: string;
   character_gender: string;
   character_class: string;
   preset_no: number;
-  item_equipment: [ItemEquipmentType];
-  item_equipment_preset_1: [ItemEquipmentType];
-  item_equipment_preset_2: [ItemEquipmentType];
-  item_equipment_preset_3: [ItemEquipmentType];
+  item_equipment: [ItemEquipment];
+  item_equipment_preset_1: [ItemEquipment];
+  item_equipment_preset_2: [ItemEquipment];
+  item_equipment_preset_3: [ItemEquipment];
   title: {
     title_name: string;
     title_icon: string;
