@@ -3,7 +3,7 @@ import axios, { Axios, InternalAxiosRequestConfig } from "axios";
 const onRequest = (
   config: InternalAxiosRequestConfig
 ): InternalAxiosRequestConfig => {
-  config.headers["x-nxopen-api-key"] = process.env.NEXT_PUBLIC_API_KEY;
+  config.headers["x-nxopen-api-key"] = process.env.NEXT_PUBLIC_API_KEY2;
   return config;
 };
 

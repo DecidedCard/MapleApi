@@ -24,6 +24,8 @@ const useUserInfoQuery = () => {
   } = useQuery({
     queryKey,
     queryFn: () => userInfo(check),
+    retry: 0,
+    refetchOnWindowFocus: false,
   });
 
   if (isLoading || !isSuccess) {
