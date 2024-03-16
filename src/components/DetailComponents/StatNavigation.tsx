@@ -22,7 +22,7 @@ const StatNavigation = ({
   } = userInformation;
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col items-center">
       <Tabs aria-label="Options">
         <Tab key="stat" title="상세 스탯">
           <Card>

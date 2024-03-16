@@ -1,10 +1,11 @@
-import { CheckItemType } from "@/types/itemType";
 import React from "react";
+
+import type { CheckItem } from "@/types/itemType";
 
 const UserItemInfo = ({
   characterItemInfo,
 }: {
-  characterItemInfo: CheckItemType;
+  characterItemInfo: CheckItem;
 }) => {
   return <div>UserItemInfo</div>;
 };

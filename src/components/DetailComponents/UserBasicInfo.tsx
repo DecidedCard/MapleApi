@@ -1,16 +1,17 @@
-import { CheckBasicType } from "@/types";
-import { Button, Card, CardBody, Slider } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import Image from "next/image";
+
+import type { CheckBasic } from "@/types";
 
 const UserBasicInfo = ({
   characterBasicInfo,
 }: {
-  characterBasicInfo: CheckBasicType;
+  characterBasicInfo: CheckBasic;
 }) => {
   return (
     <Card
       isBlurred
-      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[300px]"
+      className="border-none bg-background/60 dark:bg-default-100/50 max-w-[300px] max-h-[200px]"
       shadow="sm"
     >
       <CardBody>
