@@ -5,13 +5,9 @@ import UserUnionInfo from "./UserUnionInfo";
 import UserItemInfo from "./UserItemInfo";
 import UserSkillInfo from "./UserSkillInfo";
 
-import type { CharacterInfoCheck } from "@/types";
+import type { userInfoCheck } from "@/types";
 
-const StatNavigation = ({
-  userInformation,
-}: {
-  userInformation: CharacterInfoCheck;
-}) => {
+const StatNavigation = ({ userInfo }: { userInfo: userInfoCheck }) => {
   const {
     characterStatInfo,
     characterItemInfo,
@@ -19,7 +15,7 @@ const StatNavigation = ({
     characterUnionRaiderInfo,
     characterSkillInfo5,
     characterSkillInfo6,
-  } = userInformation;
+  } = userInfo;
 
   return (
     <div className="flex flex-col items-center">

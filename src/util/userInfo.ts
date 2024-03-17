@@ -11,7 +11,7 @@ import type {
   userInfoCheck,
 } from "@/types";
 
-const characterInfo = async (
+const getUserInfo = async (
   characterInput: string | null
 ): Promise<userInfoCheck> => {
   try {
@@ -49,4 +49,4 @@ const characterInfo = async (
   }
 };
 
-export default characterInfo;
+export default getUserInfo;

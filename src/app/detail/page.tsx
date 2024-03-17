@@ -2,26 +2,31 @@
 
 import StatNavigation from "@/components/DetailComponents/StatNavigation";
 import UserBasicInfo from "@/components/DetailComponents/UserBasicInfo";
-import useUserInfoQuery from "@/hook/useUserInfoQuery";
+import { userNameSessionStorageKey } from "@/hook/useHomeInputForm";
+import useUserInfoStore from "@/store/userImfoStore";
 
 const Detail = () => {
-  const { userInformation, isLoading, isError } = useUserInfoQuery();
+  const { userInfo, setInfo } = useUserInfoStore();
 
-  if (isLoading) {
+  if (!userInfo && typeof window !== "undefined") {
+    const userNameCheck = sessionStorage.getItem(userNameSessionStorageKey);
+    const userInfoCheck = JSON.parse(sessionStorage.getItem(userNameCheck!)!);
+    if (userInfoCheck) {
+      setInfo(userInfoCheck);
+    }
+  }
+
+  if (!userInfo) {
     return <>로딩중입니다.</>;
   }
 
-  if (isError) {
-    return <>에러!</>;
-  }
-
-  const { characterBasicInfo } = userInformation!;
+  const { characterBasicInfo } = userInfo;
 
   return (
     <div className="flex justify-center gap-20 mt-20">
       <UserBasicInfo characterBasicInfo={characterBasicInfo} />
       <div>
-        <StatNavigation userInformation={userInformation!} />
+        <StatNavigation userInfo={userInfo} />
       </div>
     </div>
   );
