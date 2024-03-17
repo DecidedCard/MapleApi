@@ -1,3 +1,5 @@
+"use client";
+
 import useUserNameStore from "@/store/userNameStore";
 import userInfo from "@/util/userInfo";
 import { useQuery } from "@tanstack/react-query";
@@ -10,7 +12,7 @@ const useUserInfoQuery = () => {
   const { userName } = useUserNameStore();
   const router = useRouter();
   let check = userName;
-  if (!userName) {
+  if (!userName && typeof window !== "undefined") {
     check = sessionStorage.getItem(sessionStorageKey);
   }
   if (!check) {
@@ -20,7 +22,7 @@ const useUserInfoQuery = () => {
   const {
     data: userInformation,
     isLoading,
-    isSuccess,
+    isError,
   } = useQuery({
     queryKey,
     queryFn: () => userInfo(check),
@@ -28,11 +30,7 @@ const useUserInfoQuery = () => {
     refetchOnWindowFocus: false,
   });
 
-  if (isLoading || !isSuccess) {
-    return { isLoading: true } as const;
-  }
-
-  return { userInformation, isLoading: false };
+  return { userInformation, isLoading, isError };
 };
 
 export default useUserInfoQuery;

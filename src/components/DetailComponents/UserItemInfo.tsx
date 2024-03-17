@@ -12,10 +12,7 @@ const CharacterItemInfo = ({
     <div className="grid grid-cols-3">
       {characterItemInfo.item_equipment.map((item, idx) => {
         return (
-          <div
-            key={idx}
-            className="group relative flex items-center m-2 text-sm"
-          >
+          <div key={idx} className="group flex items-center m-2 text-sm">
             <Image
               src={item.item_shape_icon}
               alt="아이템 이미지 입니다."
