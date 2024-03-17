@@ -1,8 +1,8 @@
 "use client";
 
+import React from "react";
 import useHomeInputForm from "@/hook/useHomeInputForm";
 import { Button, Input } from "@nextui-org/react";
-import React from "react";
 
 const InputForm = () => {
   const [userName, onChangeUserNameHandler, onSubmitHandler] =
