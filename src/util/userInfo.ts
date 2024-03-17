@@ -4,16 +4,16 @@ import type { CheckItem } from "@/types/itemType";
 import type { Unionraider } from "@/types/unionRaiderType";
 import type { Skill } from "@/types/skillType";
 import type {
-  CharacterInfoCheck,
   CheckBasic,
   CheckOcid,
   CheckStat,
   CheckUnion,
+  userInfoCheck,
 } from "@/types";
 
 const characterInfo = async (
   characterInput: string | null
-): Promise<CharacterInfoCheck> => {
+): Promise<userInfoCheck> => {
   try {
     const { data } = await API.checkOcid<CheckOcid>(characterInput);
     const { ocid } = data;

@@ -4,9 +4,14 @@ import { CheckItem } from "./itemType";
 import { Unionraider } from "./unionRaiderType";
 import { Skill } from "./skillType";
 
-export interface UserNameStoreType {
+export interface UserNameStore {
   userName: string | null;
   setName: (arg: string | null) => void;
+}
+
+export interface UserInfoStore {
+  userInfo: userInfoCheck | null;
+  setInfo: (arg: userInfoCheck | null) => void;
 }
 export interface AxiosResponse<T = any, D = any> {
   status: number;
@@ -47,7 +52,7 @@ export interface CheckUnion {
   union_level: number;
 }
 
-export interface CharacterInfoCheck {
+export interface userInfoCheck {
   characterBasicInfo: CheckBasic;
   characterStatInfo: CheckStat;
   characterItemInfo: CheckItem;
