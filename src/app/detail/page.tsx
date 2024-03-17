@@ -5,8 +5,10 @@ import UserBasicInfo from "@/components/DetailComponents/UserBasicInfo";
 import Loading from "@/components/Loading";
 import { userNameSessionStorageKey } from "@/hook/useHomeInputForm";
 import useUserInfoStore from "@/store/userImfoStore";
+import { useRouter } from "next/navigation";
 
 const Detail = () => {
+  const router = useRouter();
   // user의 정보를 가져오는 store입니다.
   const { userInfo, setInfo } = useUserInfoStore();
 
@@ -16,6 +18,8 @@ const Detail = () => {
     const userInfoCheck = JSON.parse(sessionStorage.getItem(userNameCheck!)!);
     if (userInfoCheck) {
       setInfo(userInfoCheck);
+    } else {
+      router.replace("/");
     }
   }
 

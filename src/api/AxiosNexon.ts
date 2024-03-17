@@ -9,7 +9,7 @@ const onRequest = (
 };
 
 const NexonApi: Axios = axios.create({
-  baseURL: "https://open.api.nexo.com",
+  baseURL: "https://open.api.nexon.com",
 });
 
 NexonApi.interceptors.request.use(onRequest);
