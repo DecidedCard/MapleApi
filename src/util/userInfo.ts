@@ -18,7 +18,7 @@ const getUserInfo = async (
     const { data } = await API.checkOcid<CheckOcid>(characterInput);
     const { ocid } = data;
     const response = await Promise.all([
-      API.checkbasic<CheckBasic>(ocid),
+      API.CheckBasic<CheckBasic>(ocid),
       API.checkStat<CheckStat>(ocid),
       API.checkItem<CheckItem>(ocid),
       API.checkUnion<CheckUnion>(ocid),

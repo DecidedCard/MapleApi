@@ -1,13 +1,14 @@
-import { CheckUnionType } from "@/types";
-import { UnionraiderType } from "@/types/unionRaiderType";
 import React from "react";
+
+import type { CheckUnion } from "@/types";
+import type { Unionraider } from "@/types/unionRaiderType";
 
 const UserUnionInfo = ({
   characterUnionInfo,
   characterUnionRaiderInfo,
 }: {
-  characterUnionInfo: CheckUnionType;
-  characterUnionRaiderInfo: UnionraiderType;
+  characterUnionInfo: CheckUnion;
+  characterUnionRaiderInfo: Unionraider;
 }) => {
   return <div>UserUnionInfo</div>;
 };

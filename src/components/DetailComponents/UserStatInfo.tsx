@@ -1,5 +1,6 @@
 import type { CheckStat } from "@/types";
 
+// 지금은 무식하게 그냥 찾아서 넣어 놨지만 나중엔 배열로 바꿔서 필요한 데이터만 넣은 뒤 그걸로 맵을 돌려서 줄이고 싶습니다.
 const CharacterStatInfo = ({
   characterStatInfo,
 }: {

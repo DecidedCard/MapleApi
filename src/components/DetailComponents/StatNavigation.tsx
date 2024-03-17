@@ -1,9 +1,9 @@
-import { Card, CardBody, Tab, Tabs } from "@nextui-org/react";
 import React from "react";
 import UserStatInfo from "./UserStatInfo";
 import UserUnionInfo from "./UserUnionInfo";
 import UserItemInfo from "./UserItemInfo";
 import UserSkillInfo from "./UserSkillInfo";
+import { Tab, Tabs } from "@nextui-org/react";
 
 import type { userInfoCheck } from "@/types";
 

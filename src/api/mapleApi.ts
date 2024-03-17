@@ -1,6 +1,7 @@
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import NexonApi from "./AxiosNexon";
 
+// 데이터를 fetching 할 때 필수 데이터로 날짜가 필요해서 그에 맞는 날짜 설정입니다.
 let today = new Date();
 let yesterday = new Date(today.setDate(today.getDate() - 1));
 
@@ -13,6 +14,7 @@ const checkDate =
   "-" +
   (yesterday.getDate() < 10 ? "0" + yesterday.getDate() : yesterday.getDate());
 
+// 모든 userinfo에 대해서 검색을 ocid로 하기 때문에 제일 먼저 검색해야 되는 함수 입니다.
 export const checkOcid = async <T>(
   characterName: string | null,
   config?: AxiosRequestConfig
@@ -28,7 +30,8 @@ export const checkOcid = async <T>(
   }
 };
 
-export const checkbasic = async <T>(
+// user의 기본 정보를 가져오는 함수 입니다. 여기에 캐릭터 이미지도 들어있습니다.
+export const CheckBasic = async <T>(
   ocid: string,
   config?: AxiosRequestConfig
 ): Promise<AxiosResponse<T>> => {
@@ -44,6 +47,7 @@ export const checkbasic = async <T>(
   }
 };
 
+// 캐릭터의 상세스탯을 가져옵니다.
 export const checkStat = async <T>(
   ocid: string,
   config?: AxiosRequestConfig
@@ -60,6 +64,7 @@ export const checkStat = async <T>(
   }
 };
 
+// 캐릭터가 장착하고 있는 아이템 및 프리셋 데이터를 가져옵니다.
 export const checkItem = async <T>(
   ocid: string,
   config?: AxiosRequestConfig
@@ -76,6 +81,7 @@ export const checkItem = async <T>(
   }
 };
 
+// 메이플 주요 성장 컨텐츠인 유니온의 대한 기본적인 정보를 줍니다.
 export const checkUnion = async <T>(
   ocid: string,
   config?: AxiosRequestConfig
@@ -92,6 +98,7 @@ export const checkUnion = async <T>(
   }
 };
 
+// 유니온 배치되어 있는 x,y좌표값과 배치되어서 받고 있는 능력치들의 데이터를 가져옵니다.
 export const checkUnionRaider = async <T>(
   ocid: string,
   config?: AxiosRequestConfig
@@ -108,6 +115,7 @@ export const checkUnionRaider = async <T>(
   }
 };
 
+// 스킬 정보를 가져옵니다.
 export const checkSkill5 = async <T>(
   ocid: string,
   config?: AxiosRequestConfig

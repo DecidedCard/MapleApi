@@ -1,5 +1,5 @@
-import Image from "next/image";
 import ItemStatContainer from "./ItemStatContainer";
+import Image from "next/image";
 
 import type { CheckItem } from "@/types/itemType";
 
