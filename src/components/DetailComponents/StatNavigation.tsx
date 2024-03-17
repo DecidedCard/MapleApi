@@ -21,38 +21,22 @@ const StatNavigation = ({ userInfo }: { userInfo: userInfoCheck }) => {
     <div className="flex flex-col items-center">
       <Tabs aria-label="Options">
         <Tab key="stat" title="상세 스탯">
-          <Card>
-            <CardBody>
-              <UserStatInfo characterStatInfo={characterStatInfo} />
-            </CardBody>
-          </Card>
+          <UserStatInfo characterStatInfo={characterStatInfo} />
         </Tab>
         <Tab key="union" title="유니온">
-          <Card>
-            <CardBody>
-              <UserUnionInfo
-                characterUnionInfo={characterUnionInfo}
-                characterUnionRaiderInfo={characterUnionRaiderInfo}
-              />
-            </CardBody>
-          </Card>
+          <UserUnionInfo
+            characterUnionInfo={characterUnionInfo}
+            characterUnionRaiderInfo={characterUnionRaiderInfo}
+          />
         </Tab>
         <Tab key="item" title="장착 장비">
-          <Card>
-            <CardBody>
-              <UserItemInfo characterItemInfo={characterItemInfo} />
-            </CardBody>
-          </Card>
+          <UserItemInfo characterItemInfo={characterItemInfo} />
         </Tab>
         <Tab key="skill" title="스킬">
-          <Card>
-            <CardBody>
-              <UserSkillInfo
-                characterSkillInfo5={characterSkillInfo5}
-                characterSkillInfo6={characterSkillInfo6}
-              />
-            </CardBody>
-          </Card>
+          <UserSkillInfo
+            characterSkillInfo5={characterSkillInfo5}
+            characterSkillInfo6={characterSkillInfo6}
+          />
         </Tab>
       </Tabs>
     </div>

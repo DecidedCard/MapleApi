@@ -7,7 +7,7 @@ const ItemStatContainer = ({ item }: { item: ItemEquipment }) => {
   const itemTotalOptionKeyArr = Object.keys(item.item_total_option);
 
   return (
-    <div className="absolute left-10 top-0 z-50 flex justify-evenly items-center w-72 h-72 m-1 bg-slate-950 bg-opacity-80">
+    <div className="flex justify-evenly items-center w-72 h-72 m-1 bg-slate-950 bg-opacity-80">
       <Image
         src={item.item_shape_icon}
         alt="장비 이미지 입니다."

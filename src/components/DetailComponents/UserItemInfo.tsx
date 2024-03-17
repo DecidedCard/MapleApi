@@ -29,7 +29,7 @@ const CharacterItemInfo = ({
                 {item.item_name}
               </p>
             </div>
-            <span className="opacity-0 invisible group-hover:visible group-hover:opacity-100">
+            <span className="absolute left-52 top-96 z-50 opacity-0 invisible ease-in-out duration-500 group-hover:visible group-hover:opacity-100">
               <ItemStatContainer item={item} />
             </span>
           </div>
