@@ -15,9 +15,9 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   return (
-    <div>
+    <div className="ml-72">
       <button onClick={() => setTheme(theme == "light" ? "dark" : "light")}>
-        mode
+        {`${theme == "light" ? "Dark" : "Light"} mode`}
       </button>
     </div>
   );

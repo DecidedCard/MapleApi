@@ -22,8 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Provider>
-          <Header />
-          <ThemeSwitcher />
+          <div className="flex justify-center items-center ml-96">
+            <Header />
+            <ThemeSwitcher />
+          </div>
+
           <div className="min-h-[800px]">{children}</div>
           <Footer />
         </Provider>
