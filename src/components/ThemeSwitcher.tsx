@@ -20,10 +20,10 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={() => setTheme(theme == "light" ? "dark" : "light")}
-      className="flex justify-evenly items-center rounded-2xl overflow-hidden ease-in-out duration-300"
+      className="flex justify-evenly items-center m-2 rounded-2xl overflow-hidden ease-in-out duration-300"
     >
       <div
-        className={`w-14 h-10 flex justify-center items-center ${
+        className={`w-12 h-8 flex justify-center items-center ${
           theme == "light"
             ? "bg-slate-600 text-gray-300"
             : "bg-gray-300 text-gray-700"
@@ -32,7 +32,7 @@ export function ThemeSwitcher() {
         <FaMoon className="w-10 h-6" />
       </div>
       <div
-        className={`w-14 h-10 flex justify-center items-center ${
+        className={`w-12 h-8 flex justify-center items-center ${
           theme == "light"
             ? "bg-gray-300 text-gray-700"
             : "bg-white text-black "

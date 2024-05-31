@@ -6,6 +6,7 @@ import Link from "next/link";
 import { userNameSessionStorageKey } from "@/hook/useHomeInputForm";
 
 import { GoSidebarExpand } from "react-icons/go";
+import SideNavigationBar from "./SideNavigationBar";
 
 const Header = () => {
   const [sideNavigationBar, setNavigationBar] = useState(false);
@@ -29,6 +30,7 @@ const Header = () => {
         onClick={onClickSideNavigationBarToggle}
         className="cursor-pointer"
       />
+      {sideNavigationBar && <SideNavigationBar />}
     </header>
   );
 };
