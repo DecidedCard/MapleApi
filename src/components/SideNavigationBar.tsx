@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const SideNavigationBar = ({
   sideNavigationBar,
   setNavigationBar,
 }: {
-  sideNavigationBar: true;
+  sideNavigationBar: boolean;
   setNavigationBar: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
+  const [animationCheck, setAnimationCheck] = useState(false);
   const mouseClickCheckRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -17,7 +18,11 @@ const SideNavigationBar = ({
         mouseClickCheckRef.current &&
         !mouseClickCheckRef.current.contains(e.target as Node)
       ) {
-        setNavigationBar(false);
+        setAnimationCheck(true);
+        setTimeout(() => {
+          setAnimationCheck(false);
+          setNavigationBar(false);
+        }, 750);
       }
     });
   }, [sideNavigationBar, setNavigationBar]);
@@ -25,7 +30,9 @@ const SideNavigationBar = ({
   return (
     <div
       ref={mouseClickCheckRef}
-      className="absolute right-0 top-0 z-10 w-72 h-full bg-gray-50 animate-side"
+      className={`absolute right-0 top-0 z-10 w-72 h-full bg-gray-50 ${
+        sideNavigationBar && !animationCheck && "animate-sideOn"
+      } ${sideNavigationBar && animationCheck && "animate-sideOff"}`}
     >
       <ThemeSwitcher />
     </div>

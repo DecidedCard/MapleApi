@@ -11,13 +11,18 @@ const config: Config = {
   theme: {
     extend: {
       keyframes: {
-        side: {
+        sideOn: {
           from: { transform: "translateX(100%)" },
           to: { transform: "translateX(0%)" },
         },
+        sideOff: {
+          from: { transform: "translateX(0%)" },
+          to: { transform: "translateX(100%)" },
+        },
       },
       animation: {
-        side: "side 1s ease-in-out",
+        sideOn: "sideOn 0.8s ease-in-out",
+        sideOff: "sideOff 0.8s ease-in-out",
       },
     },
   },
