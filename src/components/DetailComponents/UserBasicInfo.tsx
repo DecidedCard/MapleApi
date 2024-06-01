@@ -8,6 +8,7 @@ const UserBasicInfo = ({
 }: {
   characterBasicInfo: CheckBasic;
 }) => {
+  console.log(characterBasicInfo);
   return (
     <Card
       isBlurred
@@ -46,7 +47,9 @@ const UserBasicInfo = ({
             <div className="flex flex-col mt-3 gap-1">
               <p className="text-small">
                 <label>길드: </label>
-                {characterBasicInfo.character_guild_name}
+                {characterBasicInfo.character_guild_name
+                  ? characterBasicInfo.character_guild_name
+                  : "없음"}
               </p>
               <p className="text-small text-foreground/50">
                 <label>서버: </label>

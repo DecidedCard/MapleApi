@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Provider from "./Provider";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,9 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <Provider>{children}</Provider>
-        <Footer />
+        <Provider>
+          <div>
+            <Header />
+          </div>
+
+          <div className="min-h-[800px]">{children}</div>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

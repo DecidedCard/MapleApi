@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +18,7 @@ const Provider = ({ children }: React.PropsWithChildren) => {
   if (!isMount) {
     return null;
   }
+
   return (
     <QueryClientProvider client={queryClient}>
       <NextUIProvider>
