@@ -9,7 +9,17 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        side: {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0%)" },
+        },
+      },
+      animation: {
+        side: "side 1s ease-in-out",
+      },
+    },
   },
   plugins: [nextui()],
 };

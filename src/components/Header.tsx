@@ -30,7 +30,12 @@ const Header = () => {
         onClick={onClickSideNavigationBarToggle}
         className="cursor-pointer"
       />
-      {sideNavigationBar && <SideNavigationBar />}
+      {sideNavigationBar && (
+        <SideNavigationBar
+          sideNavigationBar={sideNavigationBar}
+          setNavigationBar={setNavigationBar}
+        />
+      )}
     </header>
   );
 };
