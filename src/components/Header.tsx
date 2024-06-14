@@ -1,20 +1,22 @@
 "use client";
 
 import React, { useState } from "react";
+
 import Link from "next/link";
 
-import { userNameSessionStorageKey } from "@/hook/useHomeInputForm";
-
 import { GoSidebarExpand } from "react-icons/go";
+
 import SideNavigationBar from "./SideNavigationBar";
+
+import { SESSIONSTORAGE_KEY } from "@/util/sessionStorrageKey";
 
 const Header = () => {
   const [sideNavigationBar, setNavigationBar] = useState(false);
 
   const removeSessionStorage = () => {
-    const userName = sessionStorage.getItem(userNameSessionStorageKey);
+    const userName = sessionStorage.getItem(SESSIONSTORAGE_KEY.userName);
     sessionStorage.removeItem(userName!);
-    sessionStorage.removeItem(userNameSessionStorageKey);
+    sessionStorage.removeItem(SESSIONSTORAGE_KEY.userName);
   };
 
   const onClickSideNavigationBarToggle = () => {
