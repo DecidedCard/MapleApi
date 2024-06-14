@@ -147,3 +147,21 @@ export const checkSkill6 = async <T>(
     return Promise.reject(error);
   }
 };
+
+export const checkUnionRanking = async <T>(
+  worldName?: string,
+  config?: AxiosRequestConfig
+): Promise<AxiosResponse<T>> => {
+  try {
+    const res = await NexonApi.get(
+      `/maplestory/v1/ranking/union?date=${checkDate}&${
+        worldName && `worldName=${worldName}&`
+      }page=1`,
+      config
+    );
+    return res;
+  } catch (error) {
+    console.error(error);
+    return Promise.reject(error);
+  }
+};
