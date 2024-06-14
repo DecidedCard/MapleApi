@@ -12,7 +12,9 @@ const checkDate =
     ? "0" + (yesterday.getMonth() + 1)
     : yesterday.getMonth() + 1) +
   "-" +
-  (yesterday.getDate() < 10 ? "0" + yesterday.getDate() : yesterday.getDate());
+  (yesterday.getDate() < 10
+    ? "0" + yesterday.getDate()
+    : yesterday.getDate() - 1);
 
 // 모든 userinfo에 대해서 검색을 ocid로 하기 때문에 제일 먼저 검색해야 되는 함수 입니다.
 export const checkOcid = async <T>(
@@ -42,7 +44,6 @@ export const CheckBasic = async <T>(
     );
     return response;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -59,7 +60,6 @@ export const checkStat = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -76,7 +76,6 @@ export const checkItem = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -93,7 +92,6 @@ export const checkUnion = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -110,7 +108,6 @@ export const checkUnionRaider = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -127,7 +124,6 @@ export const checkSkill5 = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -143,7 +139,6 @@ export const checkSkill6 = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
@@ -161,7 +156,6 @@ export const checkUnionRanking = async <T>(
     );
     return res;
   } catch (error) {
-    console.error(error);
     return Promise.reject(error);
   }
 };
