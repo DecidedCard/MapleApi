@@ -3,7 +3,7 @@ import NexonApi from "./AxiosNexon";
 
 // 데이터를 fetching 할 때 필수 데이터로 날짜가 필요해서 그에 맞는 날짜 설정입니다.
 let today = new Date();
-let yesterday = new Date(today.setDate(today.getDate() - 1));
+let yesterday = new Date(today.setDate(today.getDate()));
 
 const checkDate =
   yesterday.getFullYear() +
