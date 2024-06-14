@@ -2,9 +2,9 @@ import { AxiosRequestConfig, AxiosResponse } from "axios";
 import NexonApi from "./AxiosNexon";
 
 // 데이터를 fetching 할 때 필수 데이터로 날짜가 필요해서 그에 맞는 날짜 설정입니다.
-let today = new Date();
-let yesterday = new Date(today.setDate(today.getDate()));
-
+const today = new Date();
+const yesterday = new Date(today.setDate(today.getDate()));
+const checkTime = today.getHours() <= 0 ? 2 : 1;
 const checkDate =
   yesterday.getFullYear() +
   "-" +
@@ -12,9 +12,9 @@ const checkDate =
     ? "0" + (yesterday.getMonth() + 1)
     : yesterday.getMonth() + 1) +
   "-" +
-  (yesterday.getDate() < 10
-    ? "0" + yesterday.getDate()
-    : yesterday.getDate() - 1);
+  (yesterday.getDate() - checkTime < 10
+    ? "0" + (yesterday.getDate() - checkTime)
+    : yesterday.getDate() - checkTime);
 
 // 모든 userinfo에 대해서 검색을 ocid로 하기 때문에 제일 먼저 검색해야 되는 함수 입니다.
 export const checkOcid = async <T>(
