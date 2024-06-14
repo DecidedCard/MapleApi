@@ -2,8 +2,7 @@ import { useRouter } from "next/navigation";
 import useInput from "./useInput";
 import getUserInfo from "@/util/userInfo";
 import useUserInfoStore from "@/store/userImfoStore";
-
-export const userNameSessionStorageKey = "userName";
+import { SESSIONSTORAGE_KEY } from "@/util/sessionStorrageKey";
 
 const useHomeInputForm = () => {
   const [userName, onChangeUserNameHandler, setUserName] = useInput();
@@ -14,7 +13,7 @@ const useHomeInputForm = () => {
   const onSubmitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setInfo(null);
-    sessionStorage.setItem(userNameSessionStorageKey, userName);
+    sessionStorage.setItem(SESSIONSTORAGE_KEY.userName, userName);
     const userInfo = await getUserInfo(userName);
     setInfo(userInfo);
     sessionStorage.setItem(userName, JSON.stringify(userInfo));
