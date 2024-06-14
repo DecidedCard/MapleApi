@@ -45,7 +45,7 @@ const UnionRanking = () => {
             <div
               key={item.ranking}
               onClick={() => onClickGetUserInfoHandler(item.character_name)}
-              className="flex cursor-pointer"
+              className="flex cursor-pointer ease-in-out duration-250 hover:bg-default-200"
             >
               <ul className="w-10 border-r border-solid border-primary-200 text-center">
                 {item.ranking}
