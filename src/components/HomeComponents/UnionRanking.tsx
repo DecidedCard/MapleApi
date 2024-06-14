@@ -16,6 +16,9 @@ const UnionRanking = () => {
   }
 
   const ranking = data?.data.ranking;
+
+  const onClickgetUserInfoHandler = () => {};
+
   return (
     <>
       <h2 className="w-fit mx-auto">유니온 랭킹</h2>
