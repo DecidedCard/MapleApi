@@ -3,9 +3,11 @@
 import React from "react";
 
 import useUnionRankingQuery from "@/hook/useUnionRankingQuery";
+import useGetUserInfoEventHandler from "@/hook/useGetUserInfoEventHandler";
 
 const UnionRanking = () => {
   const { data, isError, isLoading } = useUnionRankingQuery();
+  const { onClickGetUserInfoHandler } = useGetUserInfoEventHandler();
 
   if (isLoading) {
     return <div>로딩중...</div>;
@@ -16,8 +18,6 @@ const UnionRanking = () => {
   }
 
   const ranking = data?.data.ranking;
-
-  const onClickgetUserInfoHandler = () => {};
 
   return (
     <>
@@ -42,7 +42,11 @@ const UnionRanking = () => {
 
         {ranking &&
           ranking.map((item) => (
-            <div key={item.ranking} className="flex cursor-pointer">
+            <div
+              key={item.ranking}
+              onClick={() => onClickGetUserInfoHandler(item.character_name)}
+              className="flex cursor-pointer"
+            >
               <ul className="w-10 border-r border-solid border-primary-200 text-center">
                 {item.ranking}
               </ul>
