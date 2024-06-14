@@ -1,11 +1,13 @@
 "use client";
+import { useRouter } from "next/navigation";
 
 import StatNavigation from "@/components/DetailComponents/StatNavigation";
 import UserBasicInfo from "@/components/DetailComponents/UserBasicInfo";
 import Loading from "@/components/Loading";
-import { userNameSessionStorageKey } from "@/hook/useHomeInputForm";
+
 import useUserInfoStore from "@/store/userImfoStore";
-import { useRouter } from "next/navigation";
+
+import { SESSIONSTORAGE_KEY } from "@/util/sessionStorrageKey";
 
 const Detail = () => {
   const router = useRouter();
@@ -14,7 +16,7 @@ const Detail = () => {
 
   // 새로고침시 데이터를 가져오는 로직입니다.
   if (!userInfo && typeof window !== "undefined") {
-    const userNameCheck = sessionStorage.getItem(userNameSessionStorageKey);
+    const userNameCheck = sessionStorage.getItem(SESSIONSTORAGE_KEY.userName);
     const userInfoCheck = JSON.parse(sessionStorage.getItem(userNameCheck!)!);
     if (userInfoCheck) {
       setInfo(userInfoCheck);
